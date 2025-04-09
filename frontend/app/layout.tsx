@@ -1,23 +1,23 @@
-import type { Metadata } from "next";
-import { Inter, Fira_Mono } from "next/font/google"; // Correct imports
+import type { Metadata, Viewport } from "next";
+import { Inter, Fira_Mono } from "next/font/google";
 import "./globals.css";
 
 // Initialize Inter as the primary sans-serif font
 const inter = Inter({
-  variable: "--font-sans", // Maps to your CSS variable
+  variable: "--font-sans",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
 // Initialize Fira_Mono as the monospace font
 const firaMono = Fira_Mono({
-  weight: ["400", "700"], // Specify weights since Fira Mono requires it
+  weight: ["400", "700"],
   variable: "--font-mono",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
-// Comprehensive Metadata for SEO and Sharing
+// Metadata for SEO and Sharing (without viewport or themeColor)
 export const metadata: Metadata = {
   title: {
     default: "AutoFixPro | Vehicle Management Made Simple",
@@ -99,8 +99,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#F5E8C7",
+};
+
+// Viewport export for viewport and themeColor
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#F5E8C7", // Savannah sand color
 };
 
 export default function RootLayout({
