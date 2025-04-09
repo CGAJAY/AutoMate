@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Header from "./components/Header";
+import Hero from "./components/Hero";
 
 export default function Home() {
   return (
+<<<<<<< HEAD
     <div className="relative min-h-screen ">
       {/* Background image */}
       <Image
@@ -17,6 +19,11 @@ export default function Home() {
       <div className="relative z-10">
         <Header />
       </div>
+=======
+    <div className="bg-amber-300 min-h-screen">
+      <Header />
+      <Hero />
+>>>>>>> 71d1b221b3497cc35ac36d117c4d03d99ee77dc7
     </div>
   );
 }

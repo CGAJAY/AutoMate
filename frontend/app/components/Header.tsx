@@ -50,7 +50,10 @@ export default function Header() {
       </nav>
 
       {/* Mobile Menu Toggle */}
-      <button onClick={toggleMenu} className="md:hidden text-gray-700 dark:text-white">
+      <button
+        onClick={toggleMenu}
+        className="md:hidden text-gray-700 dark:text-white"
+      >
         <Menu size={28} />
       </button>
 
@@ -64,7 +67,10 @@ export default function Header() {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="fixed top-0 left-0 w-full h-screen z-50 bg-[rgba(60,158,192,0.36)] backdrop-blur-[7.2px]  flex flex-col items-center justify-center gap-6 px-6"
           >
-            <button onClick={closeMenu} className="absolute top-6 right-6 text-white">
+            <button
+              onClick={closeMenu}
+              className="absolute top-6 right-6 text-white"
+            >
               <X size={28} />
             </button>
             {navLinks.map((link) => {
