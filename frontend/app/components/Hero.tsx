@@ -1,43 +1,27 @@
-import Image from "next/image";
 import Link from "next/link";
-import garage from "@/public/garage3.jpg"; // Ensure this image is located in your /public folder
+import garage from "@/public/garage.jpg"; // Ensure this exists in /public
 
 const Hero = () => {
   return (
-    <section className="bg-yellow-50 text-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-10">
-          {/* Text Content */}
-          <div className="flex-1 space-y-6 text-center md:text-left">
-            <h1 className="text-3xl md:text-5xl font-bold text-yellow-900 leading-tight">
-              Your Vehicle, Our Priority. Manage Everything in One Place
-            </h1>
-            <p className="text-base md:text-lg text-yellow-800">
-              Welcome to your all-in-one automotive companion. Book service
-              appointments, track your vehicle’s repair history, get real-time
-              updates, and stay informed — all from the palm of your hand.
-              Whether it’s routine maintenance or unexpected fixes, our garage
-              app makes managing your vehicle smooth, smart, and stress-free.
-            </p>
-            <Link href="/get-started">
-              <button className="bg-yellow-700 hover:bg-yellow-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition">
-                Discover More
-              </button>
-            </Link>
-          </div>
+    <section
+      className="relative h-screen w-full flex items-center justify-center bg-cover bg-center text-[var(--foreground)]"
+      style={{ backgroundImage: `url(${garage.src})` }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[var(--savannah-dusk)] opacity-50 z-0"></div>
 
-          {/* Image */}
-          <div className="flex-1 w-full">
-            <Image
-              src={garage}
-              alt="Elegant garage set in the savannah"
-              width={500}
-              height={400}
-              className="w-full h-auto rounded-xl shadow-lg"
-              priority
-            />
-          </div>
-        </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-[var(--savannah-sand)] leading-tight mb-6">
+          Your Vehicle, Our Priority
+        </h1>
+        <p className="text-lg md:text-xl text-[var(--savannah-sand)] mb-8 max-w-2xl mx-auto">
+          Manage your vehicle effortlessly with AutoFixPro. Book services, track repairs, and stay updated—all in one place.
+        </p>
+        <Link href="/get-started">
+          <button className="btn-primary">
+            Get Started
+          </button>
+        </Link>
       </div>
     </section>
   );
