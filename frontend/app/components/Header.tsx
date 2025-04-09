@@ -62,7 +62,7 @@ export default function Header() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -300, opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-full h-screen z-50 bg-[rgba(60,158,192,0.36)] backdrop-blur-[7.2px] rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center gap-6 px-6"
+            className="fixed top-0 left-0 w-full h-screen z-50 bg-[rgba(60,158,192,0.36)] backdrop-blur-[7.2px]  flex flex-col items-center justify-center gap-6 px-6"
           >
             <button onClick={closeMenu} className="absolute top-6 right-6 text-white">
               <X size={28} />
