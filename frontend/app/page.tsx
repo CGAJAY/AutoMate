@@ -3,6 +3,8 @@ import Hero from "./components/Hero";
 import WhyChooseUs from "./components/WhyChooseUs";
 import ServicesWeOffer from './components/ServicesWeOffer';
 import AIAssistantPreview from './components/AIAssistantPreview';
+import ServicesWeOffer from "./components/ServicesWeOffer";
+import ClientTestimonials from "./components/ClientTestimonials";
 
 export default function Home() {
   return (
@@ -12,6 +14,7 @@ export default function Home() {
       <WhyChooseUs />
       <ServicesWeOffer />
       <AIAssistantPreview />
+      <ClientTestimonials />
     </div>
   );
 }
