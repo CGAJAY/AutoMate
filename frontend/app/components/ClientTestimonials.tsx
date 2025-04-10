@@ -64,7 +64,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export default function Testimonials() {
+export default function ClientTestimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [expandedTestimonialId, setExpandedTestimonialId] = useState<
