@@ -3,7 +3,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image"; // Import Next.js Image
+import Image from "next/image";
 
 const services = [
   { title: "Engine Diagnostics", image: "/images/engine-diagnostics.jpg" },
@@ -27,10 +27,7 @@ const imageVariants = {
 
 const buttonContainerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 };
 
 const buttonVariants = {
@@ -50,7 +47,7 @@ export default function ServicesWeOffer() {
   const buttonsInView = useInView(buttonsRef, { amount: 0.2 });
 
   return (
-    <section className="py-12 px-4 sm:py-16 sm:px-6 lg:py-20 lg:px-8 bg-[var(--background)]">
+    <section className="py-12 px-4 sm:py-16 sm:px-6 lg:py-20 lg:px-8 bg-[var(--section-bg-secondary)]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -79,15 +76,15 @@ export default function ServicesWeOffer() {
             className="w-full lg:w-1/2 min-h-[300px] flex items-center justify-center relative"
           >
             <Image
-              key={services[hoveredIndex].image} // Key ensures re-render on src change
+              key={services[hoveredIndex].image}
               src={services[hoveredIndex].image}
               alt={services[hoveredIndex].title}
-              width={600} // Adjust based on your image dimensions
+              width={600}
               height={400}
               className="rounded-xl shadow-lg w-full max-h-[400px] object-cover"
-              priority={hoveredIndex === 0} // Preload the first image
-              placeholder="blur" // Optional: Add blur placeholder (requires blurDataURL)
-              blurDataURL="/images/placeholder.jpg" // Placeholder image (optional)
+              priority={hoveredIndex === 0}
+              placeholder="blur"
+              blurDataURL="/images/placeholder.jpg"
             />
           </motion.div>
 

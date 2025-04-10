@@ -8,8 +8,12 @@
   --savannah-dusk: #4A2C2A; /* Deep reddish-brown for dark elements */
   --savannah-sky: #D3E8F5; /* Subtle blue for contrast */
 
+  /* Alternating Section Backgrounds */
+  --section-bg-primary: var(--savannah-sand); /* Default light background */
+  --section-bg-secondary: #FDF6E8; /* Slightly warmer off-sand for contrast */
+
   /* Functional Colors */
-  --background: var(--savannah-sand);
+  --background: var(--section-bg-primary);
   --foreground: var(--savannah-earth);
   --primary: var(--savannah-sun);
   --secondary: var(--savannah-dusk);
@@ -22,7 +26,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--savannah-dusk);
+    /* Dark Mode Adjustments */
+    --section-bg-primary: var(--savannah-dusk);
+    --section-bg-secondary: #3A1F1D; /* Darker variant of dusk */
+    --background: var(--section-bg-primary);
     --foreground: var(--savannah-sand);
     --primary: var(--savannah-sun);
     --secondary: var(--savannah-earth);
