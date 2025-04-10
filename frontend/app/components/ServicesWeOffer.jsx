@@ -3,71 +3,39 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image"; // Import Next.js Image
 
 const services = [
-  {
-    title: "Engine Diagnostics",
-    image: "/images/engine-diagnostics.jpg",
-  },
-  {
-    title: "Brake Repair",
-    image: "/images/brake-repair.jpg",
-  },
-  {
-    title: "Oil Change",
-    image: "/images/oil-change.jpg",
-  },
-  {
-    title: "Car Wash & Detailing",
-    image: "/images/car-wash.jpg",
-  },
-  {
-    title: "Tire & Battery Service",
-    image: "/images/tire-battery.jpg",
-  },
-  {
-    title: "Custom Upgrades",
-    image: "/images/custom-upgrades.jpg",
-  },
+  { title: "Engine Diagnostics", image: "/images/engine-diagnostics.jpg" },
+  { title: "Brake Repair", image: "/images/brake-repair.jpg" },
+  { title: "Oil Change", image: "/images/oil-change.jpg" },
+  { title: "Car Wash & Detailing", image: "/images/car-wash.jpg" },
+  { title: "Tire & Battery Service", image: "/images/tire-battery.jpg" },
+  { title: "Custom Upgrades", image: "/images/custom-upgrades.jpg" },
 ];
 
 // Animation variants
 const headerVariants = {
   hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const imageVariants = {
   hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const buttonContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 };
 
 const buttonVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 export default function ServicesWeOffer() {
@@ -108,16 +76,18 @@ export default function ServicesWeOffer() {
             variants={imageVariants}
             initial="hidden"
             animate={imageInView ? "visible" : "hidden"}
-            className="w-full lg:w-1/2 min-h-[300px] flex items-center justify-center"
+            className="w-full lg:w-1/2 min-h-[300px] flex items-center justify-center relative"
           >
-            <motion.img
-              key={services[hoveredIndex].image}
+            <Image
+              key={services[hoveredIndex].image} // Key ensures re-render on src change
               src={services[hoveredIndex].image}
               alt={services[hoveredIndex].title}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
+              width={600} // Adjust based on your image dimensions
+              height={400}
               className="rounded-xl shadow-lg w-full max-h-[400px] object-cover"
+              priority={hoveredIndex === 0} // Preload the first image
+              placeholder="blur" // Optional: Add blur placeholder (requires blurDataURL)
+              blurDataURL="/images/placeholder.jpg" // Placeholder image (optional)
             />
           </motion.div>
 
