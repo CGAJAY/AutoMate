@@ -1,3 +1,4 @@
+// components/Header.tsx
 "use client";
 
 import Link from "next/link";
@@ -6,26 +7,37 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-const navLinks = [
+// Define the type for navigation links
+interface NavLink {
+  name: string;
+  href: string;
+}
+
+// Define the array of navigation links with TypeScript
+const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "Resources", href: "/resources" },
+  { name: "Fix AI", href: "/fix-ai" },
   { name: "Contact", href: "/contact" },
   { name: "Sign In", href: "/signin" },
 ];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
   const pathname = usePathname();
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  // Toggle mobile menu
+  const toggleMenu = (): void => setMenuOpen((prev) => !prev);
 
+  // Close mobile menu
+  const closeMenu = (): void => setMenuOpen(false);
+
+  // Handle scroll effect for header visibility
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    const handleScroll = (): void => {
+      const currentScrollY: number = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setIsVisible(false);
       } else {
@@ -51,8 +63,8 @@ export default function Header() {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex space-x-6">
-        {navLinks.map((link) => {
-          const isActive = pathname === link.href;
+        {navLinks.map((link: NavLink) => {
+          const isActive: boolean = pathname === link.href;
           return (
             <Link
               key={link.name}
@@ -72,7 +84,11 @@ export default function Header() {
       </nav>
 
       {/* Mobile Menu Toggle */}
-      <button onClick={toggleMenu} className="md:hidden text-[var(--foreground)]">
+      <button
+        onClick={toggleMenu}
+        className="md:hidden text-[var(--foreground)]"
+        aria-label="Toggle menu"
+      >
         <Menu size={28} />
       </button>
 
@@ -95,11 +111,12 @@ export default function Header() {
             <button
               onClick={closeMenu}
               className="absolute top-6 right-6 text-[var(--savannah-sand)] hover:text-[var(--primary)] transition-colors"
+              aria-label="Close menu"
             >
               <X size={28} />
             </button>
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+            {navLinks.map((link: NavLink) => {
+              const isActive: boolean = pathname === link.href;
               return (
                 <Link
                   key={link.name}
