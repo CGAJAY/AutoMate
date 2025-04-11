@@ -86,8 +86,8 @@ export default function Header() {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="fixed top-0 left-0 w-full h-screen z-50 flex flex-col items-center justify-center gap-6 px-6"
             style={{
-              background: "rgba(245, 232, 199, 0.2)", // Sandy savannah tone with transparency
-              backdropFilter: "blur(10px)", // Frosted glass effect
+              background: "rgba(74, 44, 42, 0.5)", // Sandy savannah tone with transparency
+              backdropFilter: "blur(5px)", // Frosted glass effect
               border: "1px solid rgba(255, 165, 0, 0.3)", // Subtle orange border
               boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)", // Soft shadow for depth
             }}
