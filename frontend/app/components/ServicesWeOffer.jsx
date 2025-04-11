@@ -6,9 +6,9 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
 const services = [
-  { title: "Engine Diagnostics", image: "/images/engine-diagnostics.jpg" },
+  { title: "Engine Diagnostics", image: "/images/engine.jpg" },
   { title: "Brake Repair", image: "/images/brake-repair.jpg" },
-  { title: "Oil Change", image: "/images/oil-change.jpg" },
+  { title: "Oil Change", image: "/images/oilchangee.jpg" },
   { title: "Car Wash & Detailing", image: "/images/car-wash.jpg" },
   { title: "Tire & Battery Service", image: "/images/tire-battery.jpg" },
   { title: "Custom Upgrades", image: "/images/custom-upgrades.jpg" },
@@ -22,12 +22,19 @@ const headerVariants = {
 
 const imageVariants = {
   hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
 };
 
 const buttonContainerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
 };
 
 const buttonVariants = {
@@ -61,7 +68,8 @@ export default function ServicesWeOffer() {
             Services We Offer
           </h2>
           <p className="text-base sm:text-lg text-[var(--secondary)] max-w-xl mx-auto">
-            Explore our wide range of automotive services tailored to your needs.
+            Explore our wide range of automotive services tailored to your
+            needs.
           </p>
         </motion.div>
 
