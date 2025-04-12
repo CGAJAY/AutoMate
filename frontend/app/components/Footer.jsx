@@ -54,7 +54,7 @@ const VehicleLogosSlider = () => {
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "Resources", href: "/resources" },
+  { name: "Fix AI", href: "/fix-ai" },
   { name: "Contact", href: "/contact" },
   { name: "Sign In", href: "/signin" },
 ];
