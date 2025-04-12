@@ -117,7 +117,7 @@ export default function AIAssistantPreview() {
             {preview.description}
           </p>
           <Link href="/fix-ai" className="btn-primary">
-            Try FixAI Now
+            Try FixAI Now.
           </Link>
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         </motion.div>
