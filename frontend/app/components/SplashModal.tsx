@@ -41,7 +41,7 @@ const SplashModal = () => {
             transition={{ duration: 0.4 }}
           >
             {/* Left side image */}
-            <div className="md:w-1/2">
+            <div className="hidden md:block md:w-1/2">
               <img
                 src="/images/splash.jpeg"
                 alt="Garage"
