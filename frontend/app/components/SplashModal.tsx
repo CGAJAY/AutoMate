@@ -11,6 +11,9 @@ const carBrands = [
   "Ford",
   "Mazda",
   "Nissan",
+  "Subaru",
+  "Volkswagen",
+  "Other",
 ];
 
 const SplashModal = () => {
@@ -28,13 +31,13 @@ const SplashModal = () => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 bg-white/30 backdrop-blur-sm flex justify-center items-center z-50"
+          className="fixed inset-0 bg-white/30 dark:bg-black/30 backdrop-blur-sm flex justify-center items-center z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white rounded-2xl shadow-xl p-6 w-[90%] max-w-3xl md:flex overflow-hidden relative"
+            className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6 w-[90%] max-w-3xl md:flex overflow-hidden relative"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
@@ -53,31 +56,34 @@ const SplashModal = () => {
             <div className="md:w-1/2 p-4 flex flex-col justify-between relative">
               <button
                 onClick={close}
-                className="absolute top-2 right-2 text-2xl text-gray-400 hover:text-gray-700"
+                className="absolute top-2 right-2 text-2xl text-gray-400 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
               >
                 &times;
               </button>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
                   Welcome to AutoFixPro
                 </h2>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                   Sign up to get exclusive offers, tips, and car brand updates.
                 </p>
 
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full border border-gray-300 px-3 py-2 rounded mb-4"
+                  className="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-3 py-2 rounded mb-4"
                 />
 
-                <label className="text-sm font-medium text-gray-700 block mb-2">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-200 block mb-2">
                   Select Your Car Brand
                 </label>
                 <div className="space-y-2 mb-4 text-sm">
                   {carBrands.map((brand) => (
-                    <label key={brand} className="flex items-center">
+                    <label
+                      key={brand}
+                      className="flex items-center text-gray-800 dark:text-gray-100"
+                    >
                       <input
                         type="radio"
                         name="brand"
@@ -98,7 +104,7 @@ const SplashModal = () => {
                 </button>
                 <button
                   onClick={close}
-                  className="border px-4 py-2 rounded hover:bg-gray-100"
+                  className="border border-gray-300 dark:border-gray-600 px-4 py-2 rounded text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
                   Maybe later
                 </button>
