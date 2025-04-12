@@ -4,10 +4,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Bot } from "lucide-react";
+import Link from "next/link";
 
 const preview = {
   title: "Meet FixAI: Your Smart Car Health Assistant",
-  description: "Ask questions, get maintenance tips, and diagnose issues — even before coming in.",
+  description:
+    "Ask questions, get maintenance tips, and diagnose issues — even before coming in.",
 };
 
 const features = [
@@ -17,7 +19,8 @@ const features = [
   },
   {
     title: "Proactive Tips",
-    description: "Receive tailored maintenance advice to keep your car in top shape.",
+    description:
+      "Receive tailored maintenance advice to keep your car in top shape.",
   },
   {
     title: "Early Diagnostics",
@@ -33,12 +36,20 @@ const headerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+  },
 };
 
 const featureContainerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
 };
 
 const featureVariants = {
@@ -48,7 +59,11 @@ const featureVariants = {
 
 const footerVariants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
 };
 
 export default function AIAssistantPreview() {
@@ -90,11 +105,20 @@ export default function AIAssistantPreview() {
           className="relative group bg-[var(--background)] p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-[var(--accent)]/20 overflow-hidden max-w-2xl mx-auto"
         >
           <div className="flex items-center mb-4">
-            <Bot className="w-8 h-8 sm:w-10 sm:h-10 text-[var(--primary)] mr-3 sm:mr-4" strokeWidth={2} />
-            <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)]">{preview.title}</h3>
+            <Bot
+              className="w-8 h-8 sm:w-10 sm:h-10 text-[var(--primary)] mr-3 sm:mr-4"
+              strokeWidth={2}
+            />
+            <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)]">
+              {preview.title}
+            </h3>
           </div>
-          <p className="text-sm sm:text-base text-[var(--secondary)] mb-4">{preview.description}</p>
-          <button className="btn-primary">Try FixAI Now</button>
+          <p className="text-sm sm:text-base text-[var(--secondary)] mb-4">
+            {preview.description}
+          </p>
+          <Link href="/fix-ai" className="btn-primary">
+            Try FixAI Now
+          </Link>
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         </motion.div>
 
@@ -112,8 +136,12 @@ export default function AIAssistantPreview() {
               variants={featureVariants}
               className="p-4 sm:p-6 bg-[var(--background)] rounded-lg border border-[var(--accent)]/20"
             >
-              <h4 className="text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-2">{feature.title}</h4>
-              <p className="text-sm sm:text-base text-[var(--secondary)]">{feature.description}</p>
+              <h4 className="text-lg sm:text-xl font-semibold text-[var(--foreground)] mb-2">
+                {feature.title}
+              </h4>
+              <p className="text-sm sm:text-base text-[var(--secondary)]">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -126,9 +154,12 @@ export default function AIAssistantPreview() {
           animate={footerInView ? "visible" : "hidden"}
           className="mt-10 sm:mt-12 lg:mt-14 text-center bg-[var(--accent)]/20 py-6 sm:py-8 px-4 sm:px-6 rounded-lg"
         >
-          <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)] mb-2">Why It Matters</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)] mb-2">
+            Why It Matters
+          </h3>
           <p className="text-sm sm:text-base text-[var(--secondary)] max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto">
-            FixAI teases a powerful feature that sets us apart, encouraging you to create an account and explore its full potential.
+            FixAI teases a powerful feature that sets us apart, encouraging you
+            to create an account and explore its full potential.
           </p>
         </motion.div>
       </div>
