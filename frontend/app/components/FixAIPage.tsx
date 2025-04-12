@@ -6,7 +6,7 @@ const FixAIPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-12 px-4 bg-[var(--section-bg-secondary)]">
       <h1 className="text-2xl font-bold text-[var(--foreground)] mb-4">
-        We're working to bring the Fix AI Service!!
+        We're working to bring the Fix AI Service!
       </h1>
 
       <p className="text-lg text-[var(--secondary)] mb-6 text-center">
