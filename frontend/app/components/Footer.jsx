@@ -13,15 +13,15 @@ import {
 // Vehicle logos slider component inside the same file
 const VehicleLogosSlider = () => {
   const logos = [
-    "images/logos/toyota.jpg",
-    "images/logos/bmw.jpg",
-    "images/logos/ford.jpg",
-    "images/logos/mercedes.jpg",
-    "images/logos/audi.jpg",
-    "images/logos/honda.jpg",
-    "images/logos/vw.jpg",
-    "images/logos/volvo.jpg",
-    "images/logos/nissan.jpg",
+    "/images/logos/toyota.jpg",
+    "/images/logos/bmw.jpg",
+    "/images/logos/ford.jpg",
+    "/images/logos/mercedes.jpg",
+    "/images/logos/audi.jpg",
+    "/images/logos/honda.jpg",
+    "/images/logos/vw.jpg",
+    "/images/logos/volvo.jpg",
+    "/images/logos/nissan.jpg",
   ];
 
   return (
@@ -60,8 +60,6 @@ const navLinks = [
 ];
 
 export default function Footer() {
-  console.log("My footer is working");
-
   return (
     <footer className="bg-[var(--section-bg-primary)] text-[var(--secondary)] border-t border-[var(--accent)]/20 pt-0">
       {/* Logo Slider at the Top */}
@@ -78,7 +76,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[var(--primary)]" />
-                support@yourgarage.com
+                support@AutoFixPro.com
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[var(--primary)]" />
@@ -135,7 +133,7 @@ export default function Footer() {
         </div>
 
         <div className="text-center text-xs border-t border-[var(--accent)]/20 pt-4 pb-6 text-[var(--secondary)]">
-          © 2025 YourGarage. All rights reserved.
+          © 2025 AutoFixPro. All rights reserved.
         </div>
       </div>
     </footer>
