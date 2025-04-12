@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fira_Mono } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/Footer";
+// import Header from "./components/Header";
 
 // Initialize Inter as the primary sans-serif font
 const inter = Inter({
@@ -122,7 +124,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${firaMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
+        {/* <Header /> */}
         {children}
+        <Footer />
       </body>
     </html>
   );
