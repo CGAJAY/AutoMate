@@ -8,7 +8,7 @@ import ClientTestimonies from "./components/ClientTestimonies";
 export default function Home() {
   return (
     <div>
-      <Header />;
+      <Header />
       <Hero />
       <WhyChooseUs />
       <ServicesWeOffer />
