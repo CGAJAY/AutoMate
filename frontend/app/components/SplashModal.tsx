@@ -20,11 +20,19 @@ const SplashModal = () => {
   const { isOpen, open, close } = useSplashStore();
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
 
+  // Check local storage to see if the user has already seen the modal
   useEffect(() => {
-    const timer = setTimeout(() => {
-      open();
-    }, 3000);
-    return () => clearTimeout(timer);
+    const hasSeenModal = localStorage.getItem("hasSeenSplashModal");
+
+    if (!hasSeenModal) {
+      // If not, open the modal and set the flag
+      const timer = setTimeout(() => {
+        open();
+        localStorage.setItem("hasSeenSplashModal", "true");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
   }, [open]);
 
   return (
