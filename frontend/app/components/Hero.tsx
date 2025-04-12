@@ -15,12 +15,11 @@ const Hero = () => {
           Your Vehicle, Our Priority
         </h1>
         <p className="text-lg md:text-xl text-[var(--savannah-sand)] mb-8 max-w-2xl mx-auto">
-          Manage your vehicle effortlessly with AutoFixPro. Book services, track repairs, and stay updated—all in one place.
+          Manage your vehicle effortlessly with AutoFixPro. Book services, track
+          repairs, and stay updated—all in one place.
         </p>
-        <Link href="/get-started">
-          <button className="btn-primary">
-            Get Started
-          </button>
+        <Link href="/signin">
+          <button className="btn-primary">Get Started</button>
         </Link>
       </div>
     </section>
