@@ -10,8 +10,8 @@ const FixAIPage = () => {
       </h1>
 
       <p className="text-lg text-[var(--secondary)] mb-6 text-center">
-        Stay tuned as we work to bring you an AI that can help with all your
-        car-related questions.
+        Stay tuned as we work to bring you an AI car doctor that can help with
+        all your car-related questions.
       </p>
     </div>
   );
