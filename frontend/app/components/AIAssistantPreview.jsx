@@ -116,7 +116,7 @@ export default function AIAssistantPreview() {
           <p className="text-sm sm:text-base text-[var(--secondary)] mb-4">
             {preview.description}
           </p>
-          <Link href="/fix-ai" className="btn-primary">
+          <Link href="/fix" className="btn-primary">
             Try FixAI Now
           </Link>
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>

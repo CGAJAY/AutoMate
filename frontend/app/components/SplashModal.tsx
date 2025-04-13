@@ -2,6 +2,7 @@
 import { useSplashStore } from "../store/SplashStore";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const carBrands = [
   "Toyota",
@@ -17,23 +18,31 @@ const carBrands = [
 ];
 
 const SplashModal = () => {
+  const router = useRouter();
   const { isOpen, open, close } = useSplashStore();
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // Check local storage to see if the user has already seen the modal
+  // Ensure hydration-safe rendering
   useEffect(() => {
-    const hasSeenModal = localStorage.getItem("hasSeenSplashModal");
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const hasSeenModal = sessionStorage.getItem("hasSeenSplashModal");
 
     if (!hasSeenModal) {
-      // If not, open the modal and set the flag
       const timer = setTimeout(() => {
+        console.log("Calling open()");
         open();
-        localStorage.setItem("hasSeenSplashModal", "true");
+        sessionStorage.setItem("hasSeenSplashModal", "true");
       }, 3000);
 
       return () => clearTimeout(timer);
     }
   }, [open]);
+
+  if (!hasMounted) return null;
 
   return (
     <AnimatePresence>
@@ -107,9 +116,13 @@ const SplashModal = () => {
               </div>
 
               <div className="flex flex-col md:flex-row gap-2 mt-4">
-                <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors duration-200">
+                <button
+                  onClick={() => router.push("/signin")}
+                  className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors duration-200"
+                >
                   SIGN ME UP
                 </button>
+
                 <button
                   onClick={close}
                   className="border border-gray-300 dark:border-gray-600 px-4 py-2 rounded text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
