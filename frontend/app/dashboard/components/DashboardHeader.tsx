@@ -81,9 +81,9 @@ export default function DashboardHeader() {
 
         {/* Notifications - desktop only */}
         <Link
-          href="/notifications"
+          href="/notification"
           className={`relative group transition-colors duration-300 ${
-            activePath === "/notifications"
+            activePath === "/notification"
               ? "text-[var(--primary)] font-semibold underline underline-offset-4"
               : "text-[var(--foreground)] hover:text-[var(--primary)]"
           }`}
