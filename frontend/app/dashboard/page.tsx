@@ -2,5 +2,9 @@
 import DashboardHeader from "./components/DashboardHeader";
 
 export default function DashboardPage() {
-  return <DashboardHeader />;
+  return (
+    <div>
+      <DashboardHeader />;
+    </div>
+  );
 }

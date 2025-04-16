@@ -22,10 +22,15 @@ export default function DashboardHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [activePath, setActivePath] = useState(""); // Local state to hold active path
   const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    setActivePath(pathname); // Set active path when pathname changes
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +61,7 @@ export default function DashboardHeader() {
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center space-x-6">
         {navLinks.map((link) => {
-          const isActive = pathname === link.href;
+          const isActive = activePath === link.href; // Using local state for active path
           return (
             <Link
               key={link.name}
@@ -78,7 +83,7 @@ export default function DashboardHeader() {
         <Link
           href="/notifications"
           className={`relative group transition-colors duration-300 ${
-            pathname === "/notifications"
+            activePath === "/notifications"
               ? "text-[var(--primary)] font-semibold underline underline-offset-4"
               : "text-[var(--foreground)] hover:text-[var(--primary)]"
           }`}
@@ -131,7 +136,7 @@ export default function DashboardHeader() {
               <X size={28} />
             </button>
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = activePath === link.href; // Using local state for active path
               return (
                 <Link
                   key={link.name}
