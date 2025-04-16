@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 // Sample service data – adjust the images or texts as needed
 const services = [
@@ -56,12 +57,12 @@ const services = [
 ];
 
 // Animation Variants
-const headerVariants = {
+const headerVariants: Variants = {
   hidden: { opacity: 0, y: -20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
   visible: {
     opacity: 1,
@@ -71,13 +72,74 @@ const cardVariants = {
   },
 };
 
+// Interface for service data
+interface Service {
+  title: string;
+  description: string;
+  price: string;
+  duration: string;
+  image: string;
+}
+
+// ServiceCard component to handle individual card animations
+function ServiceCard({
+  service,
+  variants,
+}: {
+  service: Service;
+  variants: Variants;
+}) {
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const cardInView = useInView(cardRef, { amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={cardRef}
+      variants={variants}
+      initial="hidden"
+      animate={cardInView ? "visible" : "hidden"}
+      className="relative group bg-[var(--background)] rounded-lg shadow-md overflow-hidden border border-[var(--accent)]/20 hover:shadow-xl transition-all duration-300"
+    >
+      <Image
+        src={service.image}
+        alt={service.title}
+        width={400}
+        height={160}
+        style={{ height: "auto" }}
+        priority={service.title === "Oil Change"}
+        className="w-full h-40 object-cover"
+      />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">
+          {service.title}
+        </h3>
+        <p className="text-[var(--secondary)] text-sm mb-4">
+          {service.description}
+        </p>
+        <div className="flex justify-between items-center mb-4">
+          <span className="text-[var(--foreground)] font-medium">
+            {service.price}
+          </span>
+          <span className="text-sm text-[var(--secondary)]">
+            {service.duration}
+          </span>
+        </div>
+        <button className="w-full px-4 py-2 bg-[var(--primary)] text-white rounded-md hover:bg-[var(--primary-dark)] transition-colors duration-300">
+          Book Now
+        </button>
+      </div>
+      {/* Hover background effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+    </motion.div>
+  );
+}
+
 export default function ServicesSection() {
   // Header animation ref and in-view hook
   const headerRef = useRef<HTMLDivElement | null>(null);
   const headerInView = useInView(headerRef, { amount: 0.5 });
 
   return (
-    // Added extra top padding (pt-24) to prevent the content from getting covered by the fixed header.
     <section className="pt-24 pb-12 px-4 sm:pt-28 sm:px-6 lg:pt-32 lg:px-8 bg-[var(--section-bg-primary)]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -99,48 +161,13 @@ export default function ServicesSection() {
 
         {/* Services Card Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            // Create a ref for each card to trigger animation on scroll into view
-            const cardRef = useRef<HTMLDivElement | null>(null);
-            const cardInView = useInView(cardRef, { amount: 0.3 });
-            return (
-              <motion.div
-                key={index}
-                ref={cardRef}
-                variants={cardVariants}
-                initial="hidden"
-                animate={cardInView ? "visible" : "hidden"}
-                className="relative group bg-[var(--background)] rounded-lg shadow-md overflow-hidden border border-[var(--accent)]/20 hover:shadow-xl transition-all duration-300"
-              >
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-[var(--secondary)] text-sm mb-4">
-                    {service.description}
-                  </p>
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-[var(--foreground)] font-medium">
-                      {service.price}
-                    </span>
-                    <span className="text-sm text-[var(--secondary)]">
-                      {service.duration}
-                    </span>
-                  </div>
-                  <button className="w-full px-4 py-2 bg-[var(--primary)] text-white rounded-md hover:bg-[var(--primary-dark)] transition-colors duration-300">
-                    Book Now
-                  </button>
-                </div>
-                {/* Hover background effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              </motion.div>
-            );
-          })}
+          {services.map((service, index) => (
+            <ServiceCard
+              key={index}
+              service={service}
+              variants={cardVariants}
+            />
+          ))}
         </div>
       </div>
     </section>
