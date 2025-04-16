@@ -1,4 +1,4 @@
-// components/ServicesWeOffer.jsx
+// components/ServicesWeOffer.tsx
 "use client";
 
 import { useState, useRef } from "react";
@@ -45,9 +45,9 @@ const buttonVariants = {
 export default function ServicesWeOffer() {
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
-  const headerRef = useRef(null);
-  const imageRef = useRef(null);
-  const buttonsRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
 
   const headerInView = useInView(headerRef, { amount: 0.5 });
   const imageInView = useInView(imageRef, { amount: 0.3 });

@@ -1,4 +1,4 @@
-// components/ClientTestimonies.jsx
+// components/ClientTestimonies.tsx
 "use client";
 
 import { motion, useInView } from "framer-motion";
@@ -34,7 +34,10 @@ const headerVariants = {
 
 const cardContainerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+  },
 };
 
 const cardVariants = {
@@ -48,8 +51,8 @@ const cardVariants = {
 };
 
 export default function ClientTestimonies() {
-  const headerRef = useRef(null);
-  const cardsRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   const headerInView = useInView(headerRef, { amount: 0.5 });
   const cardsInView = useInView(cardsRef, { amount: 0.2 });
@@ -72,7 +75,8 @@ export default function ClientTestimonies() {
             What Our Clients Say
           </h2>
           <p className="text-base sm:text-lg text-[var(--secondary)] max-w-xl sm:max-w-2xl mx-auto">
-            Hear from those who’ve experienced our exceptional service firsthand.
+            Hear from those who’ve experienced our exceptional service
+            firsthand.
           </p>
         </motion.div>
 

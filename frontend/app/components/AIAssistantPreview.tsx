@@ -1,4 +1,4 @@
-// components/AIAssistantPreview.jsx
+// components/AIAssistantPreview.tsx
 "use client";
 
 import { motion, useInView } from "framer-motion";
@@ -67,10 +67,10 @@ const footerVariants = {
 };
 
 export default function AIAssistantPreview() {
-  const headerRef = useRef(null);
-  const cardRef = useRef(null);
-  const featuresRef = useRef(null);
-  const footerRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   const headerInView = useInView(headerRef, { amount: 0.5 });
   const cardInView = useInView(cardRef, { amount: 0.3 });
@@ -154,10 +154,10 @@ export default function AIAssistantPreview() {
           animate={footerInView ? "visible" : "hidden"}
           className="mt-10 sm:mt-12 lg:mt-14 text-center bg-[var(--accent)]/20 py-6 sm:py-8 px-4 sm:px-6 rounded-lg"
         >
-          <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)] mb-2">
+          <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground-dark)] mb-2">
             Why It Matters
           </h3>
-          <p className="text-sm sm:text-base text-[var(--secondary)] max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base text-[var(--secondary)] dark:text-[var(--secondary-dark)] max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto">
             FixAI teases a powerful feature that sets us apart, encouraging you
             to create an account and explore its full potential.
           </p>

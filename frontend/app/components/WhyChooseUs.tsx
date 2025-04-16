@@ -6,22 +6,51 @@ import { useRef } from "react";
 import { Clock, DollarSign, Calendar, Bot, UserCheck } from "lucide-react";
 
 const features = [
-  { icon: Clock, title: "Real-Time Repair Updates", description: "Stay informed with live updates on your vehicle's repair status." },
-  { icon: DollarSign, title: "Transparent Pricing", description: "No hidden fees - clear, upfront costs you can trust." },
-  { icon: Calendar, title: "Book from Anywhere", description: "Schedule repairs anytime, anywhere with ease." },
-  { icon: Bot, title: "AI Assistant", description: "Get personalized maintenance tips from our smart assistant." },
-  { icon: UserCheck, title: "Trusted Mechanics", description: "Certified professionals you can rely on." },
+  {
+    icon: Clock,
+    title: "Real-Time Repair Updates",
+    description:
+      "Stay informed with live updates on your vehicle's repair status.",
+  },
+  {
+    icon: DollarSign,
+    title: "Transparent Pricing",
+    description: "No hidden fees - clear, upfront costs you can trust.",
+  },
+  {
+    icon: Calendar,
+    title: "Book from Anywhere",
+    description: "Schedule repairs anytime, anywhere with ease.",
+  },
+  {
+    icon: Bot,
+    title: "AI Assistant",
+    description: "Get personalized maintenance tips from our smart assistant.",
+  },
+  {
+    icon: UserCheck,
+    title: "Trusted Mechanics",
+    description: "Certified professionals you can rely on.",
+  },
 ];
 
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0, transition: { staggerChildren: 0.1 } },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
 };
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+  },
 };
 
 const headerVariants = {
@@ -31,7 +60,11 @@ const headerVariants = {
 
 const footerVariants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
 };
 
 export default function WhyChooseUs() {
@@ -77,10 +110,17 @@ export default function WhyChooseUs() {
               className="relative group bg-[var(--background)] p-5 sm:p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-[var(--accent)]/20 overflow-hidden"
             >
               <div className="mb-4 flex items-center">
-                <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--primary)] mr-2 sm:mr-3" strokeWidth={2} />
-                <h3 className="text-lg sm:text-xl font-semibold text-[var(--foreground)]">{feature.title}</h3>
+                <feature.icon
+                  className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--primary)] mr-2 sm:mr-3"
+                  strokeWidth={2}
+                />
+                <h3 className="text-lg sm:text-xl font-semibold text-[var(--foreground)]">
+                  {feature.title}
+                </h3>
               </div>
-              <p className="text-sm sm:text-base text-[var(--secondary)]">{feature.description}</p>
+              <p className="text-sm sm:text-base text-[var(--secondary)]">
+                {feature.description}
+              </p>
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </motion.div>
           ))}
@@ -94,9 +134,12 @@ export default function WhyChooseUs() {
           animate={footerInView ? "visible" : "hidden"}
           className="mt-10 sm:mt-12 lg:mt-14 text-center bg-[var(--accent)]/20 py-6 sm:py-8 px-4 sm:px-6 rounded-lg"
         >
-          <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)] mb-2">Why It Matters</h3>
-          <p className="text-sm sm:text-base text-[var(--secondary)] max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto">
-            Our unique features showcase our commitment to excellence, building trust and credibility with every service we provide.
+          <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground-dark)] mb-2">
+            Why It Matters
+          </h3>
+          <p className="text-sm sm:text-base text-[var(--secondary)] dark:text-[var(--secondary-dark)] max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto">
+            Our unique features showcase our commitment to excellence, building
+            trust and credibility with every service we provide.
           </p>
         </motion.div>
       </div>

@@ -73,7 +73,7 @@ const cardVariants = {
 
 export default function ServicesSection() {
   // Header animation ref and in-view hook
-  const headerRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement | null>(null);
   const headerInView = useInView(headerRef, { amount: 0.5 });
 
   return (
@@ -101,7 +101,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             // Create a ref for each card to trigger animation on scroll into view
-            const cardRef = useRef(null);
+            const cardRef = useRef<HTMLDivElement | null>(null);
             const cardInView = useInView(cardRef, { amount: 0.3 });
             return (
               <motion.div

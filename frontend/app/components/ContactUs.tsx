@@ -20,8 +20,8 @@ const formVariants = {
 };
 
 export default function ContactUs() {
-  const headerRef = useRef(null);
-  const formRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const headerInView = useInView(headerRef, { amount: 0.5 });
   const formInView = useInView(formRef, { amount: 0.3 });
@@ -95,7 +95,7 @@ export default function ContactUs() {
             <textarea
               id="message"
               name="message"
-              rows="5"
+              rows={5}
               required
               className="px-4 py-2 rounded-md border border-[var(--accent)] bg-transparent text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />

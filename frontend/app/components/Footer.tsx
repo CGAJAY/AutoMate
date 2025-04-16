@@ -12,7 +12,7 @@ import {
 
 // Vehicle logos slider component inside the same file
 const VehicleLogosSlider = () => {
-  const logos = [
+  const logos: string[] = [
     "/images/logos/toyota.jpg",
     "/images/logos/bmw.jpg",
     "/images/logos/ford.jpg",
@@ -51,7 +51,12 @@ const VehicleLogosSlider = () => {
   );
 };
 
-const navLinks = [
+interface NavLink {
+  name: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Fix AI", href: "/fix" },
@@ -59,7 +64,7 @@ const navLinks = [
   { name: "Sign In", href: "/signin" },
 ];
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-[var(--section-bg-primary)] text-[var(--secondary)] border-t border-[var(--accent)]/20 pt-0">
       {/* Logo Slider at the Top */}
@@ -138,4 +143,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
