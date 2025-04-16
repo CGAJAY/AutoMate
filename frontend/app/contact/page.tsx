@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ContactUs from "../components/ContactUs";
+import ContactUs from "./ContactUs";
 import Header from "../components/Header";
 
 export default function ContactPage() {

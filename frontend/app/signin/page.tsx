@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import AuthPage from "../components/AuthPage";
+import AuthPage from "./AuthPage";
 import Header from "../components/Header";
 
 export default function ContactPage() {

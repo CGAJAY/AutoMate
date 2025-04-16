@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import FixAI from "../components/FixAIPage";
+import FixAI from "./FixAIPage";
 import Header from "../components/Header";
 
 export default function ContactPage() {

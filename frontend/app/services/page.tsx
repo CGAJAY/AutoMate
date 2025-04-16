@@ -2,8 +2,7 @@
 "use client";
 
 import React from "react";
-// import VehicleLogosSlider from "../components/VehicleLogosSlider";
-import ServicesSection from "../components/ServicesSection";
+import ServicesSection from "./ServicesSection";
 import Header from "../components/Header";
 
 export default function ServicesPage() {
@@ -11,7 +10,6 @@ export default function ServicesPage() {
     <div>
       <Header />
       <ServicesSection />
-      {/* <VehicleLogosSlider /> */}
     </div>
   );
 }
