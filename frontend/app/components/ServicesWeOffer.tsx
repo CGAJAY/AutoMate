@@ -92,7 +92,7 @@ export default function ServicesWeOffer() {
               className="rounded-xl shadow-lg w-full max-h-[400px] object-cover"
               priority={hoveredIndex === 0}
               placeholder="blur"
-              blurDataURL="/images/placeholder.jpg"
+              blurDataURL="/images/placeholder.jpeg"
             />
           </motion.div>
 
