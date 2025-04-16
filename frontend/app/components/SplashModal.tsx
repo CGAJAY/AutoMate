@@ -3,6 +3,7 @@ import { useSplashStore } from "../store/SplashStore";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image"; // Added import for Image
 
 const carBrands = [
   "Toyota",
@@ -61,11 +62,13 @@ const SplashModal = () => {
             transition={{ duration: 0.4 }}
           >
             {/* Left side image */}
-            <div className="hidden md:block md:w-1/2">
-              <img
+            <div className="hidden md:block md:w-1/2 relative">
+              <Image
                 src="/images/splash.jpeg"
-                alt="Garage"
-                className="rounded-xl w-full h-full object-cover"
+                alt="Garage Image"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="rounded-xl object-cover"
               />
             </div>
 
@@ -75,7 +78,7 @@ const SplashModal = () => {
                 onClick={close}
                 className="absolute top-2 right-2 text-2xl text-gray-400 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
               >
-                &times;
+                ×
               </button>
 
               <div>

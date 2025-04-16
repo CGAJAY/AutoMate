@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -38,10 +39,12 @@ const VehicleLogosSlider = () => {
       >
         {[...Array(2)].flatMap((_, i) =>
           logos.map((logo, index) => (
-            <img
+            <Image
               key={`${i}-${index}`}
               src={logo}
-              alt={`Logo ${index}`}
+              alt={`Vehicle Logo ${index + 1}`} // Improved alt text
+              width={56} // Based on h-14 (14 * 4 = 56px for sm screens)
+              height={56}
               className="h-12 sm:h-14 object-contain grayscale hover:grayscale-0 transition duration-300"
             />
           ))
