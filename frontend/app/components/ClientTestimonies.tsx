@@ -10,7 +10,7 @@ const testimonials = [
     name: "Sarah Johnson",
     photo: "/images/testimonials/sarah.jpg",
     testimony:
-      "The real-time updates and AI assistant made my repair experience seamless. I’ve never felt so in control of my car’s care!",
+      "The real-time updates and AI assistant made my repair experience seamless. I have never felt so in control of my car care!",
   },
   {
     name: "Mike Torres",
@@ -75,7 +75,7 @@ export default function ClientTestimonies() {
             What Our Clients Say
           </h2>
           <p className="text-base sm:text-lg text-[var(--secondary)] max-w-xl sm:max-w-2xl mx-auto">
-            Hear from those who’ve experienced our exceptional service
+            Hear from those who have experienced our exceptional service
             firsthand.
           </p>
         </motion.div>
