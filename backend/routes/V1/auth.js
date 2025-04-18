@@ -6,6 +6,7 @@ import {
 	checkAuth,
 } from "../../controllers/auth.js";
 
+import authMiddleware from "../../middlewares/auth.js";
 // Create auth router
 const authRouter = express.Router();
 

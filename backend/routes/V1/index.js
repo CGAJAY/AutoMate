@@ -1,6 +1,5 @@
 import express from "express";
 import authRouter from "./auth.js";
-import songRouter from "./song.js";
 
 // Create v1 router
 const v1Router = express.Router();
